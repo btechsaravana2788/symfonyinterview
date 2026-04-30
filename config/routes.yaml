@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../vendor/symfony/routing/Loader/schema/routing.schema.json
+
+# This file is the entry point to configure the routes of your app.
+# Methods with the #[Route] attribute are automatically imported.
+# See also https://symfony.com/doc/current/routing.html
+
+# To list all registered routes, run the following command:
+#   bin/console debug:router
+
+dashboard_index:
+    path: /dashboard/{page}
+    controller: App\Controller\DashboardController::index
+    requirements:
+        page: '\\d+'
+    defaults:
+        page: 1
+    methods: [GET]
+
+dashboard_warmup:
+    path: /dashboard/warmup
+    controller: App\Controller\DashboardController::warmup
+    methods: [POST]

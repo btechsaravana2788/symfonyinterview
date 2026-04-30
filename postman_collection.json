@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "Dashboard CQRS Demo",
+    "description": "Postman collection for dashboard read model and warmup endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0
+    }
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000",
+      "type": "string"
+    },
+    {
+      "key": "page",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "pageSize",
+      "value": "25",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get Dashboard Page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/dashboard/{{page}}?pageSize={{pageSize}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "dashboard",
+            "{{page}}"
+          ],
+          "query": [
+            {
+              "key": "pageSize",
+              "value": "{{pageSize}}"
+            }
+          ]
+        },
+        "description": "Fetch a dashboard page with paginated read model results."
+      },
+      "response": []
+    },
+    {
+      "name": "Warmup Dashboard Cache",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/dashboard/warmup",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "dashboard",
+            "warmup"
+          ]
+        },
+        "description": "Dispatch the warmup command to pre-generate and cache dashboard pages."
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"App\\Tests\\DashboardCacheRepositoryTest::testCacheRepositoryStoresAndReturnsDashboardPages":0.005,"App\\Tests\\DashboardQueryServiceTest::testFetchDashboardPageCachesThePage":0.004,"App\\Tests\\DashboardQueryServiceTest::testFetchDashboardPageRespectsPageBounds":0.002}}
